@@ -49,10 +49,9 @@ const engagementHelper = {
         formatter: function () {
           return (
             '<br />Output: <br />' +
-            Highcharts.dateFormat("%e - %b", this.x) +
-            ": " +
             this.y +
-            " messages"
+            " message on " +  Highcharts.dateFormat("%b  %e", this.x)  
+           
           );
         },
       },
