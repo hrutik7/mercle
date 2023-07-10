@@ -1,3 +1,5 @@
+import Highcharts from 'highcharts';
+
 const engagementHelper = {
     engagementMessageOverTimeChartOptions: (messageCountList, channels) => {
       // Filter channels that have messages for more than 1 date
@@ -23,8 +25,12 @@ const engagementHelper = {
        
           (
             {
+              
+              
+
               x: new Date(date.timeBucket).getTime(), // Assuming the date property is available in each item
-           
+              //right now the distance between x axis is 7 days do it 1 day
+              // x: new Date(date.timeBucket).getUTCDate(), // Assuming the date property is available in each item
               y: Number(date.count),
             }
           )
@@ -66,9 +72,16 @@ const engagementHelper = {
           },
         },
         
+        // tooltip: {
+        //   shared: false,
+        //   crosshairs: false,
+        // },
+        //onhover show the date and count
+
         tooltip: {
-          shared: false,
-          crosshairs: false,
+          formatter: function() {
+            return  Highcharts.dateFormat('%e - %b', this.x) +': '+ this.y +' messages';
+          }
         },
         series: seriesData,
       };
