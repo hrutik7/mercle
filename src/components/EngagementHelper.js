@@ -23,7 +23,8 @@ const engagementHelper = {
        
           (
             {
-              x: Number(new Date(date.timeBucket).getUTCDate()),// Assuming the date property is available in each item
+              x: new Date(date.timeBucket).getTime(), // Assuming the date property is available in each item
+           
               y: Number(date.count),
             }
           )
@@ -43,20 +44,31 @@ const engagementHelper = {
         title: {
           text: 'Engagement Messages Over Time',
         },
+        // xAxis: {
+        //   type: 'datetime',
+        //   title: {
+        //     text: 'Date',
+        //   },
+        // },
+        //do x axis format in day and month
         xAxis: {
-          type: 'string',
+          type: 'datetime',
+          dateTimeLabelFormats: {
+            day: '%e of %b',
+          },
           title: {
             text: 'Date',
-          },
+          }, 
         },
         yAxis: {
           title: {
             text: 'Message Count',
           },
         },
+        
         tooltip: {
-          shared: true,
-          crosshairs: true,
+          shared: false,
+          crosshairs: false,
         },
         series: seriesData,
       };

@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+g.highcharts-legend.highcharts-no-tooltip{
+  display: none !important;
+}
