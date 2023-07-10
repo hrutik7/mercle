@@ -48,6 +48,7 @@ const engagementHelper = {
       tooltip: {
         formatter: function () {
           return (
+            '<br />Output: <br />' +
             Highcharts.dateFormat("%e - %b", this.x) +
             ": " +
             this.y +
